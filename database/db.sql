@@ -1,6 +1,8 @@
 drop schema if exists boundary_test cascade;
 create schema boundary_test authorization postgres;
 
+set schema 'boundary_test';
+
 drop table if exists users cascade;
 
 create table users (
@@ -49,22 +51,34 @@ create table products(
 	constraint products_pk primary key (id)
 );
 
-insert into products (display_name, cost)
-	values 
-	('Pork - Loin, Boneless', '0.94'),('Chicken - Wieners', '8.50'),('Nantucket Pine Orangebanana', '11.06'),
-	('Wine - White, Cooking', '6.50'),('Chips Potato Swt Chilli Sour', '4.82'),('Skirt - 24 Foot', '4.78'),
-	('Pasta - Orecchiette', '9.33'),('Wine - Balbach Riverside', '4.71'),('Crackers - Graham', '3.36'),
-	('Artichoke - Hearts, Canned', '6.51'),('Bread - Roll, Canadian Dinner', '0.07'),('Steampan - Lid For Half Size', '4.46'),
-	('Cheese - Pont Couvert', '6.51'),('Rootbeer', '1.89'),('Tea - Mint', '2.30'),
-	('Muffin Orange Individual', '6.23'),('Lettuce - Mini Greens, Whole', '8.57'),('Red Cod Fillets - 225g', '2.85'),
-	('Fond - Chocolate', '4.10'),('Pepper - Black, Whole', '5.28')
+INSERT INTO "products" (display_name, cost)
+	VALUES 
+	('Pork - Loin, Boneless', '0.94'),
+	('Chicken - Wieners', '8.50'),
+	('Nantucket Pine Orangebanana', '11.06'),
+	('Wine - White, Cooking', '6.50'),
+	('Chips Potato Swt Chilli Sour', '4.82'),
+	('Skirt - 24 Foot', '4.78'),
+	('Pasta - Orecchiette', '9.33'),
+	('Wine - Balbach Riverside', '4.71'),
+	('Crackers - Graham', '3.36'),
+	('Artichoke - Hearts, Canned', '6.51'),
+	('Bread - Roll, Canadian Dinner', '0.07'),
+	('Steampan - Lid For Half Size', '4.46'),
+	('Cheese - Pont Couvert', '6.51'),
+	('Rootbeer', '1.89'),('Tea - Mint', '2.30'),
+	('Muffin Orange Individual', '6.23'),
+	('Lettuce - Mini Greens, Whole', '8.57'),
+	('Red Cod Fillets - 225g', '2.85'),
+	('Fond - Chocolate', '4.10'),
+	('Pepper - Black, Whole', '5.28')
 ;
 
 select * from products;
 
 drop table if exists purchases;
 
-create table purchases(
+CREATE TABLE purchases(
 	user_id integer,
 	product_id integer,
 	quantity smallint not null,

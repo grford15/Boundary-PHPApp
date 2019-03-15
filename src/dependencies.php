@@ -24,3 +24,6 @@ $container[\BoundaryWS\Controller\UserController::class] = function ($container)
 $container[\BoundaryWS\Controller\ProductController::class] = function ($container) {
     return new \BoundaryWS\Controller\ProductController($container['db']->getConnection());
 };
+$container[\BoundaryWS\Controller\PurchaseController::class] = function ($container) {
+    return new \BoundaryWS\Controller\PurchaseController($container['db']->getConnection());
+};
