@@ -31,7 +31,7 @@ class AuthController
         if (count($user) == 0) {
             return $response->withJson(['error' => 'Username and password combination doesn\'t exist!'], 401);
         } else {
-            return $response->withStatus(202);
+            return $response->withJson([$user], 200);
         }
     }
 

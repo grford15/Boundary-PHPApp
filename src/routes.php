@@ -7,6 +7,7 @@ use BoundaryWS\Controller\UserController;
 
 $app->group('/api', function () {
     $this->post('/auth/login', AuthController::class . ':login');
+    $this->post('/users', UserController::class . ':updateUser');
     $this->get('/users', UserController::class . ':getAll');
     $this->get('/users/{p_id}', UserController::class . ':getById');
     $this->get('/products', ProductController::class . ':getAll');
