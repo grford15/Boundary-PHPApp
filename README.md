@@ -13,9 +13,9 @@ This skeleton application was built using composer.
  - Composer - Follow instructions for your Operating System (https://getcomposer.org/).
 
 ### Running the App
-Within your idea, or by console if you desire, be sure to install the project's dependencies with 'php composer.phar install'
+first I ran ```psql -d postgres -a -f database/db.sql``` in the command line from the Project directory to create & populate the database.
 
-Running this project is extremely simple, simply navigate to the public folder and execute the command php -s localhost:[YOURPORT] and away you go! You will see simple logging information appear in your terminal window.
+Then: ```php -S localhost:8080 -t public``` to run the api.
 
 ## References
 http://www.slimframework.com/docs/
