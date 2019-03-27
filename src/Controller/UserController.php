@@ -45,13 +45,12 @@ class UserController {
         $email_address = $params['email_address'];
         $username = $parms['username'];
         $password = $params['password'];
-        $id = $params['id'];
 
         $dbResponse = $this->db->update(
-            'UPDATE users SET (first_name, second_name, email_address, username, password) = (?, ?, ?, ?, ?) WHERE id = ?', [$first_name], [$second_name], [$email_address], [$username], [$password], [$id]
+            'UPDATE users SET (first_name, second_name, email_address, username, password) = (?, ?, ?, ?, ?) WHERE (id) = (?)', [$first_name, $second_name, $email_address, $username, $password, $id]
         );
 
-        return $response->withJson(['users' => $dbResponse]);
+        return $response->withJson(['users' => $dbResponse[0]]);
     }
 
 }
